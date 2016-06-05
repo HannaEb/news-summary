@@ -1,6 +1,6 @@
-angular.module("newsSummaryApp")
-  .controller("NewsSummaryController", [function() {
+newsSummaryApp.controller("NewsSummaryController", ['ArticleFactory', 'ArticleService', function(ArticleFactory, ArticleService) {
     var self = this;
 
-    self.greeting = "Hello, world";
+    self.articles = ArticleService.getAll();
+
   }]);

@@ -3,19 +3,21 @@
 <html lang="en" ng-app="newsSummaryApp">
   <head>
     <meta charset="utf-8">
+    <title>News Summary</title>
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/factories.js"></script>
     <script src="js/services.js"></script>
-    <title>News Summary</title>
+
   </head>
 
   <body>
     <div ng-controller="NewsSummaryController as controller">
-      <p ng-repeat="newsarticle in controller.newsarticles">
-        {{ newsarticle.headline }}
-      </p>
+        <div ng-repeat="article in controller.articles">
+          {{ article.headline }}
+        </div>
     </div>
   </body>
 </html>
