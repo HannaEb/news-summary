@@ -16,7 +16,7 @@
   <body>
     <div ng-controller="NewsSummaryController as controller">
         <div ng-repeat="article in controller.articles">
-          {{ article.headline }}
+          <a href="{{ article.webUrl }}">{{ article.headline }}</a>
         </div>
     </div>
   </body>
