@@ -17,6 +17,7 @@
     <div ng-controller="NewsSummaryController as controller">
         <div ng-repeat="article in controller.articles">
           <a href="{{ article.webUrl }}">{{ article.headline }}</a>
+          <img ng-src="{{ article.thumbnail }}" />
         </div>
     </div>
   </body>

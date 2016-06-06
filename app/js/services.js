@@ -9,7 +9,7 @@ newsSummaryApp.service('ArticleService', ['$http', 'ArticleFactory', function($h
   };
 
   function _fetchHeadlinesFromApi(headlines) {
-    $http.get('http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?show-fields=headline,trailText')
+    $http.get('http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?show-fields=headline,thumbnail,trailText')
       .then(function(response) {
         _handleResponseFromApi(response.data, headlines);
       }, function(err) {});
@@ -17,7 +17,7 @@ newsSummaryApp.service('ArticleService', ['$http', 'ArticleFactory', function($h
 
   function _handleResponseFromApi(data, headlines) {
     data.response.results.forEach(function(result) {
-      headlines.push(new ArticleFactory(result.fields.headline));
+      headlines.push(new ArticleFactory(result.fields.headline, result.fields.thumbnail));
     });
   }
 }]);
